@@ -1,0 +1,24 @@
+#Start at the login prompt on your EC2 machine:
+
+sudo bash
+cd /root
+
+#Then, grab the latest dropbox installation package for Linux:
+
+wget -O dropbox.tar.gz "http://www.dropbox.com/download/?plat=lnx.x86_64"
+
+# Unpack it:
+
+tar -xvzf dropbox.tar.gz
+
+#Make the Dropbox directory on /mnt and link it in:
+
+mkdir /mnt/Dropbox
+ln -fs /mnt/Dropbox /root
+
+#extra step 
+export LANGUAGE=en
+
+# and then run it, configuring it to put stuff in /mnt:
+
+HOME=/mnt /root/.dropbox-dist/dropboxd &
